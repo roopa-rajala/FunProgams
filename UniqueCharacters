@@ -1,0 +1,29 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class UniqueCharacters{
+
+     public static void main(String []args){
+         String word="abcb";
+         HashMap<Character,Integer> hmap=new HashMap();
+         int index=0;
+         int value=0;
+         while(index<word.length()){
+             if(!hmap.containsKey(word.charAt(index))){
+                 hmap.put(word.charAt(index),1);
+             }
+             else{
+                 value=hmap.get(word.charAt(index));
+                 hmap.replace(word.charAt(index),value+1);
+             }
+             index++;
+         }
+         for(Map.Entry<Character,Integer> unique:hmap.entrySet()){
+             if(unique.getValue()==1)
+                System.out.println(unique.getKey());
+         }
+         
+
+        
+     }
+}
