@@ -1,0 +1,32 @@
+class Solution {
+    public int uniqueMorseRepresentations(String[] words) {
+        HashMap<String,Integer> hmap=new HashMap<String,Integer>();
+        String[] morseCodeDict= new String[]{".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        
+        String[] morseCode=new String[words.length];
+        int index=0;
+        for(String word:words){
+            
+            for(char c:word.toCharArray()){
+                morseCode[index]+=morseCodeDict[c-'a'];
+                
+            }
+            if(!hmap.containsKey(morseCode[index])){
+                    hmap.put(morseCode[index],1);
+                   
+                }
+                else{
+                    hmap.put(morseCode[index],hmap.get(morseCode[index]+1));
+                }
+            index++;
+        }
+        return hmap.size();
+        
+        
+        
+    }
+    public static void main(String []args){
+        String[] words=new String[]{"gin", "zen", "gig", "msg"};
+        System.out.println(uniqueMorseRepresentations(words));
+     }
+}
