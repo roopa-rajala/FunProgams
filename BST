@@ -1,0 +1,67 @@
+public class Node{
+Node left,right;
+int data;
+public Node(int data){
+    this.data=data;
+}
+public void insert(int value){
+    
+    if(value<=data){
+        if(left==null){
+            left=new Node(value);
+        }
+        else{
+             left.insert(value);
+        }
+    }else{
+        if(right==null){
+            right= new Node(value);
+        }
+        else{
+            right.insert(value);
+        }
+    }
+    
+}
+public boolean contains(int value){
+    
+    if(value==data){
+        return true;
+    }else if(value<=data){
+        if(left==null)
+        return false;
+        else{
+            return left.contains(value);
+        }
+    }
+    else{
+        if(right==null){
+            return false;
+        }
+        else{
+            return right.contains(value);
+        }
+    }
+        
+}
+public void printInorder(){
+    if(left!=null){
+        left.printInorder();
+    }
+    System.out.println(data);
+    if(right!=null){
+        right.printInorder();
+    }
+    System.out.println(data);
+    
+}
+     public static void main(String []args){
+         Node node =new Node(5);
+         node.left=new Node(4);
+         node.right=new Node(6);
+         node.insert(7);
+         System.out.println(node.contains(7));
+         node.printInorder();
+       
+     }
+}
