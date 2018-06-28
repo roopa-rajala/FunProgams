@@ -52,7 +52,7 @@ public void printInorder(){
     if(right!=null){
         right.printInorder();
     }
-    System.out.println(data);
+    
     
 }
      public static void main(String []args){
