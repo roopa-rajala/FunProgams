@@ -1,0 +1,34 @@
+import java.util.Stack;
+public class Node{
+int data;
+Node left,right;
+public Node(int data){
+  this.data=data;
+}
+public static void main(String args[]){
+  Stack<Node> stack=new Stack<Node>();  // stack with Node as an type of element
+  Node node=new Node(1); //head Node
+node.left=new Node(2);
+node.right=new Node(3);
+node.left.left=new Node(4);
+node.left.right=new Node(5);
+
+Node current=node;
+while(current!=null){
+    stack.push(current);
+    current=current.left;
+}
+while( !stack.empty()){
+    if(current==null){
+  current=stack.pop();
+System.out.println(current.data);
+current=current.right;
+while(current!=null){
+    stack.push(current);
+    current=current.left;
+}
+}
+}
+
+}
+}
