@@ -2,9 +2,11 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
+
 public class MyClass {
     public static void main(String args[]) {
-        String sentence="Hi this is roopa.";
+        String sentence="The lines are printed in reverse order.";
+       sentence= sentence.substring(0,1).toLowerCase()+sentence.substring(1,sentence.length()-1);
         String[] words=sentence.replaceAll("[\\.+$]","").split(" ");
       HashMap<Integer,List<String>>  hmap =new HashMap<Integer,List<String>>();
      for(int i=0;i<words.length;i++){
@@ -24,6 +26,7 @@ for(Entry<Integer,List<String>> en : hmap.entrySet()){
 			}
 		}
 		str.setCharAt(str.length()-1,'.');
+		str.setCharAt(0,(char)(str.charAt(0)-32));
         System.out.print(str);
     }
 }
