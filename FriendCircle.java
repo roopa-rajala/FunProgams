@@ -17,7 +17,7 @@ static int friendCircles(List<String> friends) {
         return count;
     }
 static void dfs(char[][] arrOfFriend,int[] visited,int position){
-    for(int col=0;col<arrOfFriend.length;col++){
+    for(int col=0;col<arrOfFriend[0].length;col++){
         if(arrOfFriend[position][col]=='Y' && visited[col]==0){
             visited[col]=1;
             dfs(arrOfFriend,visited,col);
